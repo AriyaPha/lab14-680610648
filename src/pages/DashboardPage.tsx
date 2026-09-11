@@ -9,11 +9,14 @@ export default function DashboardPage() {
       <div className="container mt-4">
         <h2>Dashboard</h2>
         <p>ผู้ลงทะเบียนแล้ว ({registrants.length} คน)</p>
-        {registrants.map((registrant) => (
-          <UserRegisterCard key={registrant.id} registrant={registrant} />
-        ))}
-      </div>
 
+        {registrants.length === 0 ? (
+          <div className="alert alert-warning text-center">ยังไม่มีผู้ลงทะเบียน</div>): 
+          (registrants.map((registrant) => (
+          <UserRegisterCard key={registrant.id} registrant={registrant} />
+        ))
+       )}
+      </div>
     </>
   );
 }
